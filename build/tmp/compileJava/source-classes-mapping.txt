@@ -1,0 +1,18 @@
+com/github/amusingimpala/knitClient/tests/ToEnum.java
+ com.github.amusingimpala.knitClient.tests.ToEnum
+com/github/amusingimpala/knitClient/KnitClient.java
+ com.github.amusingimpala.knitClient.KnitClient
+com/github/amusingimpala/knitClient/tests/FromEnum.java
+ com.github.amusingimpala.knitClient.tests.FromEnum
+com/github/amusingimpala/knitClient/transformations/KnitClassWriter.java
+ com.github.amusingimpala.knitClient.transformations.KnitClassWriter
+ com.github.amusingimpala.knitClient.transformations.KnitClassWriter$EnumAdder
+ com.github.amusingimpala.knitClient.transformations.KnitClassWriter$EnumAdder$ClinitMethodVisitor
+ com.github.amusingimpala.knitClient.transformations.KnitClassWriter$InterfaceAdder
+ com.github.amusingimpala.knitClient.transformations.KnitClassWriter$WidenAccess
+com/github/amusingimpala/knitClient/transformations/ClassTransformation.java
+ com.github.amusingimpala.knitClient.transformations.ClassTransformation
+com/github/amusingimpala/knitClient/classLoader/KnitClassLoader.java
+ com.github.amusingimpala.knitClient.classLoader.KnitClassLoader
+com/github/amusingimpala/knitClient/transformations/EnumAdditionProvider.java
+ com.github.amusingimpala.knitClient.transformations.EnumAdditionProvider
