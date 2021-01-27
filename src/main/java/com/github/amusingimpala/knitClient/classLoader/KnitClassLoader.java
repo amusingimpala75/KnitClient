@@ -30,7 +30,7 @@ public class KnitClassLoader extends ClassLoader {
             System.out.println("Modifying ToEnum enum");
             KnitClassWriter kcw;
             kcw = new KnitClassWriter("com/github/amusingimpala/knitClient/tests/ToEnum");
-            //b = kcw.addEnumValues("com/github/amusingimpala/knitClient/tests/FromEnum", "Ljava/lang/String;").write();
+            b = kcw.addEnumValues("com/github/amusingimpala/knitClient/tests/FromEnum", "Ljava/lang/String;").write();
         }
         return defineClass(name, b, 0, b.length);
     }
@@ -98,7 +98,7 @@ public class KnitClassLoader extends ClassLoader {
             // FIXME: remove the GSON exclusion once loader stops using gson.
             // We now repackage Gson's JsonReader so removal is now possible
             if (c == null && name.equals("com.github.amusingimpala.knitClient.tests.ToEnum")) {
-                byte[] input = getTransformedClass();
+                byte[] input = loadClassFromFile(name);
                 if (input != null) {
 
                     int pkgDelimiterPos = name.lastIndexOf('.');
@@ -112,9 +112,6 @@ public class KnitClassLoader extends ClassLoader {
 
                     c = defineClass(name, input, 0, input.length);
                 }
-            }
-            if (c == null) {
-                c = super.loadClass(name, resolve);
             }
 
             if (resolve) {
@@ -142,12 +139,5 @@ public class KnitClassLoader extends ClassLoader {
             }
         }
         return false;
-    }
-
-    public byte[] getTransformedClass() {
-        KnitClassWriter kcw;
-        kcw = new KnitClassWriter("com/github/amusingimpala/knitClient/tests/ToEnum");
-        System.out.println("getting transformed ToEnum class");
-        return kcw.addEnumValues("com/github/amusingimpala/knitClient/tests/FromEnum", "Ljava/lang/String;");
     }
 }

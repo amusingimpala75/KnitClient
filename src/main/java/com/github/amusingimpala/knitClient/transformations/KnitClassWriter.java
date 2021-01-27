@@ -9,7 +9,7 @@ import static org.objectweb.asm.Opcodes.*;
 
 public class KnitClassWriter {
 
-    private final ClassReader reader;
+    private ClassReader reader;
     private final ClassWriter writer;
     private final String clazz;
 
@@ -35,7 +35,7 @@ public class KnitClassWriter {
         return this;
     }
 
-    public byte[] addEnumValues(String sourceEnum, String desc) {
+    public KnitClassWriter addEnumValues(String sourceEnum, String desc) {
         EnumAdder ea;
         try {
             ea = new EnumAdder(writer, sourceEnum, desc);
@@ -44,7 +44,7 @@ public class KnitClassWriter {
             throw new NullPointerException();
         }
         reader.accept(ea, 0);
-        return writer.toByteArray();
+        return this;
     }
 
     public KnitClassWriter addInterface(String interfaceName) {
